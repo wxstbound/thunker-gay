@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    font-weight: bold;
+}
+
+#payment-proof {
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#paymentProofForm {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#proofResult {
+    font-weight: bold;
+    text-align: center;
+}
