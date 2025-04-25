@@ -88,6 +88,18 @@ const placeholderNFTs = [
     imageUrl: "https://i.imgur.com/0CxcAfY.png",
     title: "Omni Thunker 🤔🦸‍♂️",
     description: "Mr. Thunker NFT Collection"
+  },
+  {
+    id: 15,
+    imageUrl: "https://i.imgur.com/iWJzVsS.png",
+    title: "Backdoored Thunker 🤔🐀",
+    description: "Mr. Thunker NFT Collection"
+  },
+    {
+    id: 15,
+    imageUrl: "https://i.imgur.com/dV0p19J.png",
+    title: "C5 Thunker 🤔👨‍💻",
+    description: "Mr. Thunker NFT Collection"
   }
 ];
 
