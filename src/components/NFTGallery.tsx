@@ -1,6 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import NFTCard from './NFTCard';
+import NFTModal from './NFTModal';
 
 // Placeholder data for NFT gallery
 const placeholderNFTs = [
@@ -61,6 +62,8 @@ const placeholderNFTs = [
 ];
 
 const NFTGallery: React.FC = () => {
+  const [selectedNFT, setSelectedNFT] = useState<typeof placeholderNFTs[0] | null>(null);
+
   return (
     <section 
       id="gallery-section" 
@@ -74,12 +77,14 @@ const NFTGallery: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            NFTs
-          </h2>
-          <p className="text-xl md:text-2xl font-medium text-gray-300">
-            Collection
-          </p>
+          <div className="inline-block backdrop-blur-md bg-white/10 px-8 py-4 rounded-2xl border border-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
+              NFTs
+            </h2>
+            <p className="text-xl md:text-2xl font-medium text-gray-300">
+              Collection
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,9 +95,21 @@ const NFTGallery: React.FC = () => {
               imageUrl={nft.imageUrl}
               title={nft.title}
               description={nft.description}
+              onClick={() => setSelectedNFT(nft)}
             />
           ))}
         </div>
+
+        <AnimatePresence>
+          {selectedNFT && (
+            <NFTModal
+              imageUrl={selectedNFT.imageUrl}
+              title={selectedNFT.title}
+              description={selectedNFT.description}
+              onClose={() => setSelectedNFT(null)}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
