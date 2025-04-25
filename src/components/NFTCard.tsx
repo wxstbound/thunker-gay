@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../contexts/ThemeContext';
 
 interface NFTCardProps {
   index: number;
@@ -10,18 +9,12 @@ interface NFTCardProps {
 }
 
 const NFTCard: React.FC<NFTCardProps> = ({ index, imageUrl, title, description }) => {
-  const { theme } = useTheme();
-  
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
-      className={`rounded-xl overflow-hidden shadow-lg transition-all duration-300 ${
-        theme === 'dark' 
-          ? 'bg-gray-800 hover:bg-gray-700 hover:shadow-indigo-500/20' 
-          : 'bg-white hover:bg-gray-50 hover:shadow-indigo-500/10'
-      }`}
+      className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 bg-gray-800 hover:bg-gray-700 hover:shadow-purple-500/20"
     >
       <div className="relative h-64 w-full overflow-hidden">
         <img 
@@ -32,11 +25,11 @@ const NFTCard: React.FC<NFTCardProps> = ({ index, imageUrl, title, description }
       </div>
       
       <div className="p-6">
-        <h3 className={`font-semibold text-lg mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+        <h3 className="font-semibold text-lg mb-2 text-white">
           {title}
         </h3>
         {description && (
-          <p className={`text-sm ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
+          <p className="text-sm text-gray-300">
             {description}
           </p>
         )}
