@@ -7,38 +7,56 @@ import NFTCard from './NFTCard';
 const placeholderNFTs = [
   {
     id: 1,
-    imageUrl: "https://images.pexels.com/photos/2832382/pexels-photo-2832382.jpeg",
-    title: "Coming Soon #1",
+    imageUrl: "https://i.imgur.com/tW6QvQL.jpeg",
+    title: "Neutral Thunker 🤔",
     description: "Mr. Thunker NFT Collection"
   },
   {
     id: 2,
-    imageUrl: "https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg",
-    title: "Coming Soon #2",
+    imageUrl: "https://i.imgur.com/KM4MMNq.png",
+    title: "Threaded Thunker 🤔🧵",
     description: "Mr. Thunker NFT Collection"
   },
   {
     id: 3,
-    imageUrl: "https://images.pexels.com/photos/5022849/pexels-photo-5022849.jpeg",
-    title: "Coming Soon #3",
+    imageUrl: "https://i.imgur.com/BtnnKgh.png",
+    title: "Gay Thunker 🤔🏳️‍🌈",
     description: "Mr. Thunker NFT Collection"
   },
   {
     id: 4,
-    imageUrl: "https://images.pexels.com/photos/4348556/pexels-photo-4348556.jpeg",
-    title: "Coming Soon #4",
+    imageUrl: "https://i.imgur.com/fyqPr6e.png",
+    title: "Gay Threaded Thunker 🤔🏳️‍🌈🧵",
     description: "Mr. Thunker NFT Collection"
   },
   {
     id: 5,
-    imageUrl: "https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg",
-    title: "Coming Soon #5",
+    imageUrl: "https://i.imgur.com/96a0uLq.jpeg",
+    title: "Slimy Thunker 🤔💦",
     description: "Mr. Thunker NFT Collection"
   },
   {
     id: 6,
-    imageUrl: "https://images.pexels.com/photos/4107897/pexels-photo-4107897.jpeg",
-    title: "Coming Soon #6",
+    imageUrl: "https://i.imgur.com/9nRCFzq.jpeg",
+    title: "Furry Thunker 🤔😻",
+    description: "Mr. Thunker NFT Collection"
+  }
+  {
+    id: 6,
+    imageUrl: "https://i.imgur.com/xbINhWw.jpeg",
+    title: "Evil Thunker 🤔😈",
+    description: "Mr. Thunker NFT Collection"
+  }
+  {
+    id: 6,
+    imageUrl: "https://i.imgur.com/5J8ad6l.jpeg",
+    title: "Original Thunker 🤔",
+    description: "Mr. Thunker NFT Collection"
+  }
+  {
+    id: 6,
+    imageUrl: "https://i.imgur.com/khl2QaA.jpeg",
+    title: "Windows 12 Thunker Edition 🤔💻",
     description: "Mr. Thunker NFT Collection"
   }
 ];
