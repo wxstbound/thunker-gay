@@ -59,6 +59,30 @@ const placeholderNFTs = [
     title: "Windows 12 Thunker Edition 🤔💻",
     description: "Mr. Thunker NFT Collection"
   }
+  {
+    id: 10,
+    imageUrl: "https://i.imgur.com/f4kffyj.png",
+    title: "Thunker Crushing C5 🤔🪖",
+    description: "Mr. Thunker NFT Collection"
+  }
+  {
+    id: 11,
+    imageUrl: "https://i.imgur.com/f4kffyj.png",
+    title: "Thunker Crushing C5 🤔🪖",
+    description: "Mr. Thunker NFT Collection"
+  }
+  {
+    id: 12,
+    imageUrl: "https://i.imgur.com/3REKZNL.png",
+    title: "Dirty Teeth Thunker 🤔🪥",
+    description: "Mr. Thunker NFT Collection"
+  }
+  {
+    id: 13,
+    imageUrl: "https://i.imgur.com/DgpyIbb.png",
+    title: "Curry and Cream Thunker 🤔🍦",
+    description: "Mr. Thunker NFT Collection"
+  }
 ];
 
 const NFTGallery: React.FC = () => {
