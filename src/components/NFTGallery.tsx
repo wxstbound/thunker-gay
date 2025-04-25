@@ -96,9 +96,21 @@ const placeholderNFTs = [
     description: "Mr. Thunker NFT Collection"
   },
     {
-    id: 15,
+    id: 16,
     imageUrl: "https://i.imgur.com/dV0p19J.png",
     title: "C5 Thunker 🤔👨‍💻",
+    description: "Mr. Thunker NFT Collection"
+  },
+  {
+    id: 17,
+    imageUrl: "https://i.imgur.com/QWYWJrF.png",
+    title: "Galatic Thunker 🤔🌌",
+    description: "Mr. Thunker NFT Collection"
+  },
+  {
+    id: 18,
+    imageUrl: "https://i.imgur.com/uvIt22G.png",
+    title: "Birthday Thunker 🤔🎂",
     description: "Mr. Thunker NFT Collection"
   }
 ];
