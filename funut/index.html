@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>funut | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta name="description" content="funut's personal portfolio - programmer and skidder">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: black;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .container {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .content {
+      text-align: center;
+      z-index: 20;
+    }
+
+    .title {
+      font-size: 3.75rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .audio-controls {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 0.75rem;
+      border-radius: 9999px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .volume-slider {
+      width: 80px;
+      accent-color: rgb(168, 85, 247);
+    }
+
+    .spinning-text {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 50;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .spinning-text:hover {
+      animation: rainbow-spin 0.5s linear infinite;
+      transform: scale(1.1);
+    }
+
+    .rainbow-animation {
+      animation: rainbow-animation 6s linear infinite;
+    }
+
+    @keyframes rainbow-animation {
+      0% { color: #ff0000; }
+      16.6% { color: #ff00ff; }
+      33.3% { color: #0000ff; }
+      50% { color: #00ffff; }
+      66.6% { color: #00ff00; }
+      83.3% { color: #ffff00; }
+      100% { color: #ff0000; }
+    }
+
+    @keyframes rainbow-spin {
+      from { transform: rotate(0deg) scale(1.1); }
+      to { transform: rotate(360deg) scale(1.1); }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-background">
+    <div class="video-overlay"></div>
+    <video autoplay muted loop playsinline>
+      <source src="https://github.com/funuttt/sounbd/raw/refs/heads/main/TOP%2010%20REASONS%20WHY%20ONIMAI%20RAT%20IS%20BAD.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <canvas id="rainCanvas"></canvas>
+
+  <div class="container">
+    <div class="content">
+      <h1 class="title">
+        <span id="typewriter"></span>
+        <span class="cursor">|</span>
+      </h1>
+      <div class="description rainbow-animation">
+        I am a programmer and skidder, I enjoy commiting crime :)
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/funuttt" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@funutt" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.youtube.com/watch?v=-CdhZPK-wkI" target="_blank" rel="noopener noreferrer" class="spinning-text rainbow-animation">
+    onimai v2
+  </a>
+
+  <div class="audio-controls">
+    <button id="muteButton">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+    </button>
+    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="0.5">
+  </div>
+
+  <audio id="bgAudio" loop>
+    <source src="https://github.com/funuttt/sounbd/raw/refs/heads/main/coolpro1%20-%20exefullyundetected%20refudded.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Audio
+    const audio = document.getElementById('bgAudio');
+    const muteButton = document.getElementById('muteButton');
+    const volumeSlider = document.getElementById('volumeSlider');
+
+    audio.volume = volumeSlider.value;
+    
+    document.addEventListener('click', () => {
+      audio.play().catch(console.error);
+    });
+
+    muteButton.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      muteButton.innerHTML = audio.muted ? 
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>' :
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
+    });
+
+    volumeSlider.addEventListener('input', (e) => {
+      audio.volume = e.target.value;
+    });
+
+    // Typewriter
+    const typewriterElement = document.getElementById('typewriter');
+    const text = 'funut';
+    let index = 0;
+    let isDeleting = false;
+    let typingDelay = 100;
+
+    function type() {
+      const current = isDeleting 
+        ? text.substring(0, index - 1)
+        : text.substring(0, index + 1);
+      
+      typewriterElement.textContent = current;
+
+      if (!isDeleting && index === text.length) {
+        setTimeout(() => isDeleting = true, 2000);
+      } else if (isDeleting && index === 0) {
+        isDeleting = false;
+        setTimeout(type, 1000);
+        return;
+      }
+
+      index = isDeleting ? index - 1 : index + 1;
+      setTimeout(type, typingDelay);
+    }
+
+    type();
+
+    // Rain
+    const canvas = document.getElementById('rainCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const imageUrls = [
+      'https://i.imgur.com/Z5M1oih.png',
+      'https://i.imgur.com/PEkq7gj.png',
+      'https://i.imgur.com/kGUSXDq.png'
+    ];
+
+    const images = imageUrls.map(url => {
+      const img = new Image();
+      img.src = url;
+      return img;
+    });
+
+    const particles = Array(50).fill().map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height * 2 - canvas.height,
+      speed: Math.random() * 2 + 1,
+      size: Math.random() * 30 + 20,
+      imageIndex: Math.floor(Math.random() * 3)
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        if (images[particle.imageIndex].complete) {
+          ctx.save();
+          ctx.globalAlpha = 0.6;
+          ctx.drawImage(
+            images[particle.imageIndex],
+            particle.x - particle.size / 2,
+            particle.y - particle.size / 2,
+            particle.size,
+            particle.size
+          );
+          ctx.restore();
+          
+          particle.y += particle.speed;
+          
+          if (particle.y > canvas.height + particle.size) {
+            particle.y = -particle.size;
+            particle.x = Math.random() * canvas.width;
+          }
+        }
+      });
+      
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
