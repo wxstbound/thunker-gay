@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>funut</title>
+  <title>funut | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -212,7 +212,7 @@
     <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="0.5">
   </div>
 
-  <audio id="bgAudio" loop>
+  <audio id="bgAudio" autoplay loop>
     <source src="https://github.com/funuttt/sounbd/raw/refs/heads/main/coolpro1%20-%20exefullyundetected%20refudded.mp3" type="audio/mpeg">
   </audio>
 
@@ -223,11 +223,14 @@
     const volumeSlider = document.getElementById('volumeSlider');
 
     audio.volume = volumeSlider.value;
-    
-    document.addEventListener('click', () => {
-      audio.play().catch(console.error);
-    });
 
+    // Try to play audio immediately
+    window.addEventListener('load', () => {
+      audio.play().catch(error => {
+        console.log('Autoplay prevented:', error);
+      });
+    });
+    
     muteButton.addEventListener('click', () => {
       audio.muted = !audio.muted;
       muteButton.innerHTML = audio.muted ? 
@@ -328,6 +331,18 @@
     }
 
     animate();
+
+    // Try to play audio when user interacts with the page
+    const playAudioOnInteraction = () => {
+      audio.play().catch(console.error);
+      document.removeEventListener('click', playAudioOnInteraction);
+      document.removeEventListener('touchstart', playAudioOnInteraction);
+      document.removeEventListener('keydown', playAudioOnInteraction);
+    };
+
+    document.addEventListener('click', playAudioOnInteraction);
+    document.addEventListener('touchstart', playAudioOnInteraction);
+    document.addEventListener('keydown', playAudioOnInteraction);
   </script>
 </body>
 </html>
